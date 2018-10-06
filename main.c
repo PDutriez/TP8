@@ -1,30 +1,16 @@
 #include <stdio.h>
-#define NAME "PROG"
+#include"checkterm.h"
+#define NAME "checkterm" //Nombre original del programa
 
 int main(int argc,char* argv[])
 {
-    int word;
-    for(word=0;word<=argc;++word)
-    {
-        switch(argv[word])
-        {
-            case '.': //Este es el caso del nombre del archivo
-            check(argv[word]);
-            //FUNCIONES
-            break;
-            case '-': //Este es el caso de una operacion
-            //FUNCIONES
-            ++word; //Aumentamos ya que la siguiente palabra es el valor
-            break;
-            default: //Este es el caso de un parametro
+    int count;
+    char* options[2][MAX/2],char* parametros[MAX];
+    checkname(argv[0],NAME);
+    checkall(argc,argv,options,parametros);
+    for(count=0;count<=MAX;++count)
+        printf("El parametro numero %d, es: %s\n",count,parametros[count]);
+    for(count=0;count<=MAX/2;++count)
+        printf("El operando numero %d, clave: %s, valor:%s ",count,options[0][count],options[1][count]);
 
-            break;
-        }
-    }
-    return 0;
-}
-
-void check(char *p)
-{
-    
 }
